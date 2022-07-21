@@ -6,6 +6,8 @@ Systems.
 These pumps are also distributed under different names, like Aladdin by World Precision Instruments
 (WPI) and LA by Landgraf Laborsysteme.
 
+This is a fork from florian-lapp's original, modified to accommodate other NE pump modles.
+
 ## Features
 
 - Object-oriented design
