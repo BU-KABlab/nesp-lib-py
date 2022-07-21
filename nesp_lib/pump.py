@@ -374,7 +374,7 @@ class Pump :
 
     # Format: "NE" <Model number> "V" <Firmware major version> "." <Firmware minor version>
     __RE_PATTERN_FIRMWARE_VERSION = re.compile(
-        'NE' + __RE_INTEGER + 'V' + __RE_INTEGER + r'\.' + __RE_INTEGER, re.ASCII
+        'NE' + __RE_INTEGER + '(?:[A-Z][0-9])?V' + __RE_INTEGER + r'\.' + __RE_INTEGER, re.ASCII
     )
     __RE_PATTERN_SAFE_MODE_TIMEOUT = re.compile(__RE_INTEGER, re.ASCII)
     __RE_PATTERN_SYRINGE_DIAMETER = re.compile(__RE_FLOAT, re.ASCII)
