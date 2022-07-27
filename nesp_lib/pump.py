@@ -215,13 +215,13 @@ class Pump :
         :raises ValueError:
             Pumping volume invalid.
         """
-        if pumping_volume < 0.001 / 1_000.0 or pumping_volume >= 10_000.0 :
-            raise ValueError('Pumping volume invalid: Value exceeds limit.')
-        if pumping_volume >= 10_000.0 / 1_000.0 :
-            units = 'ML'
-        else :
-            pumping_volume *= 1_000.0
-            units = 'UL'
+        #if pumping_volume < 0.001 / 1_000.0 or pumping_volume >= 10_000.0 :
+        #    raise ValueError('Pumping volume invalid: Value exceeds limit.')
+        #if pumping_volume >= 10_000.0 / 1_000.0 :
+        units = 'ML'
+        #else :
+        #    pumping_volume *= 1_000.0
+        #   units = 'UL'
         self.__command_transceive(Pump.__CommandName.PUMPING_VOLUME, [units])
         try :
             self.__command_transceive(Pump.__CommandName.PUMPING_VOLUME, [pumping_volume])
@@ -253,21 +253,21 @@ class Pump :
         :raises ValueError:
             Pumping rate invalid.
         """
-        if pumping_rate < 0.001 / 60_000.0 or pumping_rate >= 10_000.0 :
-            raise ValueError('Pumping rate invalid: Value exceeds limit.')
-        if pumping_rate >= 10_000.0 / 60.0 :
-            units = 'MM'
-        elif pumping_rate >= 10_000.0 / 1_000.0 :
-            pumping_rate *= 60.0
-            units = 'MH'
-        elif pumping_rate >= 10_000.0 / 60_000.0 :
-            pumping_rate *= 1_000.0
-            units = 'UM'
-        else :
-            pumping_rate *= 60_000.0
-            units = 'UH'
+        #if pumping_rate < 0.001 / 60_000.0 or pumping_rate >= 10_000.0 :
+            #raise ValueError('Pumping rate invalid: Value exceeds limit.')
+        #if pumping_rate >= 10_000.0 / 60.0 :
+        units = 'MM'
+        #elif pumping_rate >= 10_000.0 / 1_000.0 :
+        #    pumping_rate *= 60.0
+        #    units = 'MH'
+        #elif pumping_rate >= 10_000.0 / 60_000.0 :
+        #    pumping_rate *= 1_000.0
+        #    units = 'UM'
+        #else :
+        #    pumping_rate *= 60_000.0
+        #    units = 'UH'
         try :
-            self.__command_transceive(Pump.__CommandName.PUMPING_RATE, [pumping_rate, units])
+           self.__command_transceive(Pump.__CommandName.PUMPING_RATE, [pumping_rate, units])
         except ValueError :
             raise ValueError('Pumping rate invalid: Value exceeds limit.')
 
