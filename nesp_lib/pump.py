@@ -73,11 +73,11 @@ class Pump :
         self.__heartbeat_event : typing.Optional[threading.Event] = None
         self.__heartbeat_event_timeout = 0.0
         self.__safe_mode_timeout_set(safe_mode_timeout, True)
-        model_number_port, firmware_version_port = self.__firmware_version_get()
-        if model_number != Pump.MODEL_NUMBER_IGNORE and model_number_port != model_number :
-            raise ModelException()
-        self.__model_number = model_number_port
-        self.__firmware_version = firmware_version_port
+        # model_number_port, firmware_version_port = self.__firmware_version_get()
+        # if model_number != Pump.MODEL_NUMBER_IGNORE and model_number_port != model_number :
+        #    raise ModelException()
+        # self.__model_number = model_number_port
+        # self.__firmware_version = firmware_version_port
 
     @property
     def address(self) -> int :
