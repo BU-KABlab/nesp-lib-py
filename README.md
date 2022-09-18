@@ -17,7 +17,12 @@ This is a fork from florian-lapp's original, modified to accommodate other NE pu
 - Sending heartbeat messages automatically
 
 ## Installing
+For this fork, modified as stated above, use:
 
+```
+pip install git+https://github.com/AbeKh/nesp-lib-py.git
+```
+For the original library, get the pip version.
 ```
 pip install NESP-Lib
 ```
