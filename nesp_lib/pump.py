@@ -242,7 +242,7 @@ class Pump :
         return value_milliliters_per_minute(value)
 
     @pumping_rate.setter
-    def pumping_rate(self, pumping_rate : float) -> None :
+    def pumping_rate(self, pumping_rate : float, units = 'MM') -> None :
         """
         Sets the pumping rate of the pump in units of milliliters per minute.
 
@@ -255,17 +255,17 @@ class Pump :
         """
         #if pumping_rate < 0.001 / 60_000.0 or pumping_rate >= 10_000.0 :
             #raise ValueError('Pumping rate invalid: Value exceeds limit.')
-        #if pumping_rate >= 10_000.0 / 60.0 :
-        units = 'MM'
-        #elif pumping_rate >= 10_000.0 / 1_000.0 :
-        #    pumping_rate *= 60.0
-        #    units = 'MH'
-        #elif pumping_rate >= 10_000.0 / 60_000.0 :
-        #    pumping_rate *= 1_000.0
-        #    units = 'UM'
-        #else :
-        #    pumping_rate *= 60_000.0
-        #    units = 'UH'
+        if pumping_rate >= 10_000.0 / 60.0 :
+            units = 'MM'
+        elif pumping_rate >= 10_000.0 / 1_000.0 :
+            pumping_rate *= 60.0
+            units = 'MH'
+        elif pumping_rate >= 10_000.0 / 60_000.0 :
+            pumping_rate *= 1_000.0
+            units = 'UM'
+        else :
+            pumping_rate *= 60_000.0
+            units = 'UH'
         try :
            self.__command_transceive(Pump.__CommandName.PUMPING_RATE, [pumping_rate, units])
         except ValueError :
