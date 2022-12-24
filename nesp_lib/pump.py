@@ -255,9 +255,9 @@ class Pump :
         """
         #if pumping_rate < 0.001 / 60_000.0 or pumping_rate >= 10_000.0 :
             #raise ValueError('Pumping rate invalid: Value exceeds limit.')
-        if pumping_rate >= 10_000.0 / 60.0 :
+        if pumping_rate >= 10_000.0 / 1_000.0 :
             units = 'MM'
-        elif pumping_rate >= 10_000.0 / 1_000.0 :
+        elif pumping_rate >= 10_000.0 / 10_000.0 :
             pumping_rate *= 60.0
             units = 'MH'
         elif pumping_rate >= 10_000.0 / 60_000.0 :
