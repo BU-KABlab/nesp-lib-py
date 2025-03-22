@@ -6,11 +6,14 @@ class Port :
     BAUD_RATE_DEFAULT = 9_600
     """Default baud rate."""
 
+    TIMEOUT_DEFAULT = 1
+    """Default serial connection timeout"""
+
     class Unavailability(Exception) :
         """Exception that indicates the unavailability of a port."""
         pass
 
-    def __init__(self, name : str, baud_rate : int = BAUD_RATE_DEFAULT) -> None :
+    def __init__(self, name : str, baud_rate : int = BAUD_RATE_DEFAULT, timeout: float = TIMEOUT_DEFAULT) -> None :
         """
         Constructs a port.
 
@@ -27,7 +30,8 @@ class Port :
         try :
             self.__serial = serial.Serial(
                 port = name,
-                baudrate = baud_rate
+                baudrate = baud_rate,
+                timeout = timeout
             )
         except ValueError :
             raise ValueError('Baud rate invalid.')
