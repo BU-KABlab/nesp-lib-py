@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "NESP-Lib"
+version = "1.0.2"
+description = "New Era Syringe Pump Library for Python"
+authors = [
+    {name = "Florian Lapp", email = "e5abed0c@gmail.com"}
+]
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+keywords = ["New-Era-Pump-Systems", "Syringe-Pump"]
+requires-python = ">=3.10"
+dependencies = [
+    "pyserial",
+    "pytest>=7.4.4",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/florian-lapp/nesp-lib-py"
+"Bug Tracker" = "https://github.com/florian-lapp/nesp-lib-py/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=22.0",
+    "isort>=5.0",
+    "mypy>=0.900",
+    "flake8>=4.0",
+    "coverage>=6.0",
+]
+
+[tool.setuptools]
+packages = ["nesp_lib"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v"
+
+[tool.black]
+line-length = 88
+target-version = ["py37"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true

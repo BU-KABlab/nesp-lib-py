@@ -18,16 +18,52 @@ This is a fork from florian-lapp's original combined with modifications from Abe
 
 ## Installing
 
-For this fork, modified as stated above, use:
+### From GitHub
 
-```
+```bash
+# Install the package directly from GitHub
 pip install git+https://github.com/BU-KABlab/nesp-lib-py.git
+
+# Install with development dependencies
+pip install "git+https://github.com/BU-KABlab/nesp-lib-py.git#egg=NESP-Lib[dev]"
 ```
 
-For the original library, get the pip version.
+### From PyPI
 
-```
+```bash
+# Install the package
 pip install NESP-Lib
+
+# Install with development dependencies
+pip install NESP-Lib[dev]
+```
+
+## Development
+
+### Setup Development Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/BU-KABlab/nesp-lib-py.git
+cd nesp-lib-py
+
+# Create and activate virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install with development dependencies
+pip install -e ".[dev]"
+```
+
+### Running Tests
+
+```bash
+# Run tests using pytest
+pytest
+
+# Run with coverage report
+coverage run -m pytest
+coverage report
 ```
 
 ## Importing
