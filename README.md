@@ -6,7 +6,7 @@ Systems.
 These pumps are also distributed under different names, like Aladdin by World Precision Instruments
 (WPI) and LA by Landgraf Laborsysteme.
 
-This is a fork from florian-lapp's original, modified to accommodate other NE models and paramaters.
+This is a fork from florian-lapp's original combined with modifications from AbeKh (https://github.com/AbeKh/nesp-lib-py.git), modified to accommodate other NE models and paramaters, and add QOL features.
 
 ## Features
 
@@ -17,19 +17,22 @@ This is a fork from florian-lapp's original, modified to accommodate other NE mo
 - Sending heartbeat messages automatically
 
 ## Installing
+
 For this fork, modified as stated above, use:
 
 ```
-pip install git+https://github.com/AbeKh/nesp-lib-py.git
+pip install git+https://github.com/BU-KABlab/nesp-lib-py.git
 ```
+
 For the original library, get the pip version.
+
 ```
 pip install NESP-Lib
 ```
 
 ## Importing
 
-``` python
+```python
 import nesp_lib
 ```
 
@@ -37,7 +40,7 @@ import nesp_lib
 
 ### Configuring
 
-``` python
+```python
 from nesp_lib import Port, Pump, PumpingDirection
 
 # Constructs the port to which the pump is connected.
@@ -56,7 +59,7 @@ pump.pumping_rate = 20.0
 
 ### Identifying
 
-``` python
+```python
 # Prints the model number of the pump (e.g. "1000" for NE-1000).
 print(pump.model_number)
 # Prints the firmware version of the pump (e.g. "(3, 928)" for 3.928).
@@ -67,7 +70,7 @@ print(pump.firmware_version)
 
 Blocking running waits while the pump is running.
 
-``` python
+```python
 # Runs the pump considering the direction, volume, and rate set.
 pump.run()
 ```
@@ -76,7 +79,7 @@ pump.run()
 
 Non-blocking running returns immediately after starting the running.
 
-``` python
+```python
 # Starts running the pump considering the direction, volume, and rate set.
 pump.run(False)
 # Waits while the pump is running.
