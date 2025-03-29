@@ -38,6 +38,23 @@ class Port :
         except serial.SerialException :
             raise Port.Unavailability()
 
+    def open(self) -> bool:
+        """
+        Opens the serial connection.
+        """
+        if not hasattr(self, "__serial") not self.__serial.is_open:
+            self.__serial.open()
+        return self.__serial.is_open
+    
+
+    def close(self) -> bool:
+        """
+        Closes the serial connection.
+        """
+        if hasattr(self, "__serial") and self.__serial.is_open:
+            self.__serial.close()
+        return not self.__serial.is_open
+
     def _transmit(self, data : bytes) -> None :
         """
         Transmits data to the port.
