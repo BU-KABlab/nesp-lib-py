@@ -104,7 +104,7 @@ class Pump :
         """
         return self.__model_number
 
-     @property
+    @property
     def firmware_upgrade(self) -> int :
         """
         Gets the firmware upgrade of the pump.
@@ -399,9 +399,6 @@ class Pump :
     # Format: "NE" <Model number> ("X" (<Firmware upgrade>)?)? "V"
     # <Firmware major version> "." <Firmware minor version>
     __RE_PATTERN_FIRMWARE_VERSION = re.compile(
-        'NE' + __RE_INTEGER + '(X' + __RE_INTEGER + '?)?' + 'V' +
-        __RE_INTEGER + r'\.' + __RE_INTEGER,
-        re.ASCII
         'NE' + __RE_INTEGER + '(X' + __RE_INTEGER + '?)?' + 'V' +
         __RE_INTEGER + r'\.' + __RE_INTEGER,
         re.ASCII
@@ -710,7 +707,6 @@ class Pump :
             else :
                 self.__command_transceive(Pump.__CommandName.STATUS)
 
-    def __firmware_version_get(self) -> typing.Tuple[int, typing.Tuple[int, int], int] :
     def __firmware_version_get(self) -> typing.Tuple[int, typing.Tuple[int, int], int] :
         _, match = self.__command_transceive(
             Pump.__CommandName.FIRMWARE_VERSION, [], Pump.__RE_PATTERN_FIRMWARE_VERSION

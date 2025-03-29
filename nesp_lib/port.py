@@ -42,7 +42,7 @@ class Port :
         """
         Opens the serial connection.
         """
-        if not hasattr(self, "__serial") not self.__serial.is_open:
+        if hasattr(self, "_Port__serial") and not self._Port__serial.is_open:
             self.__serial.open()
         return self.__serial.is_open
     
@@ -51,7 +51,7 @@ class Port :
         """
         Closes the serial connection.
         """
-        if hasattr(self, "__serial") and self.__serial.is_open:
+        if hasattr(self, "_Port__serial") and self._Port__serial.is_open:
             self.__serial.close()
         return not self.__serial.is_open
 
