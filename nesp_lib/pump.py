@@ -352,6 +352,10 @@ class Pump :
         while self.running :
             time.sleep(Pump.PUMPING_POLL_DELAY)
 
+    def close(self) -> None :
+        """Closes the pump."""
+        self.__port.close()
+        
     # Start transmission
     __STX = 0x02
     # End transmission
